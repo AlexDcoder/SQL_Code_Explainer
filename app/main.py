@@ -18,6 +18,13 @@ def alert_error(error_message):
     messagebox.showerror(title="Error founded", message=error_message)
 
 
+def alert_information(information_message):
+    '''
+        Show alert for information
+    '''
+    messagebox.showinfo(message=information_message)
+
+
 class Retiql(customtkinter.CTk):
     '''
         Creating the app for SQL code explainer
@@ -41,12 +48,13 @@ class Retiql(customtkinter.CTk):
         # Description
         self._description_app = customtkinter.CTkLabel(
             self, text=(
-                'A SQL parser, changes a SQL articulated definition using' +
-                ' python in a ' + '\n simple and efficient way.'),
+                '''
+A SQL code explainer. It uses Python to articulate the SQL code in a simple way
+'''),
             font=customtkinter.CTkFont(
                 family='Trebuchet MS', slant='italic'),
         )
-        self._description_app.pack(pady=4)
+        self._description_app.pack()
 
         # Input code field
         self.input_output_frame = customtkinter.CTkFrame(
@@ -126,11 +134,14 @@ class Retiql(customtkinter.CTk):
         '''
         transference_area = self.output_textarea.get("0.0", END)
         if transference_area != "\n" and transference_area != "":
-            print(
-                f"TEXTO : {transference_area.strip()} " +
-                "foi copiado para a área de transferência")
+            self.copy_button.configure(text="Coppied !")
+
             self.clipboard_clear()
             self.clipboard_append(transference_area)
+            alert_information("Text coppied to clipboard !")
+
+            self.copy_button.configure(text="Coppy")
+
         else:
             alert_error("The text isn't able to copy.")
 
