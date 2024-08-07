@@ -23,15 +23,16 @@ def explain_code(code: str) -> str | None:
                 {code}
                 If the above code is an SQL code, than return the explanation
                 of what each command is doing in the
-                model: COMMAND NAME: WHAT IT DOES IN CODE.
-                Else, just
-                return as an answer:
+                model:
+                    'COMMAND NAME': WHAT IT DOES IN CODE.
+                Else, just return as an answer:
                 'This is not a SQL code.
                 Please provide the SQL code you'd like me to analyze, and I'll
-                be happy to help!' and just this, no other information.
+                be happy to help!' and only this, no other information or
+                other type of answers.
                 """
             },
         ],
-        model="llama3-8b-8192",
+        model="llama-3.1-8b-instant",
     )
     return answer.choices[0].message.content

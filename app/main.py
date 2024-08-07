@@ -49,7 +49,7 @@ class Retiql(customtkinter.CTk):
         self._description_app = customtkinter.CTkLabel(
             self, text=(
                 '''
-A SQL code explainer. It uses Python to articulate the SQL code in a simple way
+A SQL code explainer. It uses Python to articulate the SQL code in a simple way.
 '''),
             font=customtkinter.CTkFont(
                 family='Trebuchet MS', slant='italic'),
